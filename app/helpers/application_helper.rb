@@ -18,9 +18,9 @@ end
 
 def toastr_flash type
   case type
-  when :danger
+  when "danger"
     "toastr.error"
-  when :success
+  when "success"
     "toastr.success"
   else
     "toastr.info"

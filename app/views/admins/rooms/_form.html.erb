@@ -1,4 +1,4 @@
-<%= form_for [:admins, @room] do |f| %>
+<%= form_for [:admins, @room], html: { multipart: true } do |f| %>
   <%= f.label t("admins.rooms.name"), class: "input-presence" %>
   <%= f.text_field :name, class: "form-control" %>
   <%= display_error f.object, :name, t("admins.rooms.name") %>
@@ -23,8 +23,23 @@
   <%= f.text_field :map, class: "form-control" %>
   <%= display_error f.object, :map, t("admins.rooms.map") %>
   <%= f.label t("admins.rooms.image"), class: "input-presence" %>
-  <%= f.text_area :image, class: "form-control" %>
-  <%= display_error f.object, :image, t("admins.rooms.image") %>
+  <%= f.file_field :pictures, class: "form-control", id: "imgInp" %>
+  <div class="room-picture">
+    <%= image_tag (@room.pictures_url if @room.pictures_url), id: "blah" %>
+  </div>
+  <%= display_error f.object, :pictures, t("admins.rooms.image") %>
+  <%= f.label t("admins.rooms.image_detail") %>
+  <%= f.file_field :image, multiple: true, name: "room[room_pictures_attributes][][image]",
+      class: "form-control", id: "imgMulInp" %>
+  <div class="room-picture room-mul-pic">
+    <div class="box-img-deleted"></div>
+    <% @room.room_pictures.each do |p| %>
+      <div class="box-img">
+        <%= image_tag p.image_url || "", class: "img-room-detail" %>
+        <span class="btn-delete-img" data-id="<%= p.id %>">x<span>
+      </div>
+    <% end %>
+  </div>
   <%= f.label t("admins.rooms.address"), class: "input-presence" %>
   <%= f.text_area :address, class: "form-control" %>
   <%= display_error f.object, :address, t("admins.rooms.address") %>

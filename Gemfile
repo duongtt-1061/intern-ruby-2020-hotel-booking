@@ -26,6 +26,7 @@ gem "bootstrap-kaminari-views"
 gem "bcrypt", "3.1.13"
 gem "font_awesome5_rails"
 gem "toastr-rails"
+gem "carrierwave", "~> 2.0"
 
 # gem "image_processing", "~> 1.2"
 

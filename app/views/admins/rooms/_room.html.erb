@@ -3,7 +3,7 @@
   <td><%= room.name %></td>
   <td><%= room.category_name %></td>
   <td><%= room.price %></td>
-  <td><%= image_tag room.image, class: "image-show-admin" %></td>
+  <td><%= image_tag room.pictures.url || "", class: "image-show-admin" %></td>
   <td>
     <%= link_to edit_admins_room_path(room), class: "btn btn-success" do %>
       <i class="fa fa-pencil" aria-hidden="true"></i>

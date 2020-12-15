@@ -162,6 +162,7 @@ vi:
       name: "Tên phòng"
       price: "Giá phòng"
       image: "Hình ảnh"
+      image_detail: "Hình ảnh chi tiết"
       cate: "Loại phòng"
       action: "Hành động"
       slug: "Tên viết tắt"

@@ -1,14 +1,18 @@
 class Room < ApplicationRecord
-  ROOM_PERMIT = %i(name slug category_id price ward_id
-                   max_person description map image address).freeze
+  ROOM_PERMIT = [:name, :slug, :category_id, :price, :ward_id,
+                 :max_person, :description, :map, :address, :pictures,
+                 room_pictures_attributes: RoomPicture::ROOM_PICTURE].freeze
 
   belongs_to :category
   has_many :room_supplies, dependent: :destroy
   has_many :supplies, through: :room_supplies
   has_many :orders, dependent: :destroy
+  has_many :room_pictures, dependent: :destroy
+  mount_uploader :pictures, RoomPictureUploader
+  accepts_nested_attributes_for :room_pictures, allow_destroy: true
 
   validates :name, :slug, :price,
-            :description, :map, :image, :address, presence: true
+            :description, :map, :address, presence: true
   validates :price, :max_person,
             numericality: {greater_than: Settings.rooms.min_num}
   validates :name,

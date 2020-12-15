@@ -125,7 +125,40 @@
     color: $blue;
   }
 }
+
 .result-admin-order{
   margin-left: 50%;
   color: $red;
+}
+
+.room-picture {
+  margin: 20px 0;
+  display: flex;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.box-img {
+  position: relative;
+  display: flex;
+  
+  .btn-delete-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    cursor: pointer;
+    background-color: $red;
+  }
+
+  .img-room-detail {
+    margin-right: 20px;
+  }
 }
