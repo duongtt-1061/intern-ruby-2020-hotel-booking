@@ -69,3 +69,23 @@
 .line-detail-order{
   margin-bottom: 10px;
 }
+
+.input-address-user{
+  margin-bottom: 10px;
+}
+
+.custom-d-flex{
+  display: flex;
+  position: relative;
+}
+
+.div-x{
+  position: absolute;
+  right: 0px;
+}
+
+.delete-address{
+  border: 1px solid $red;
+  background-color: $red;
+  color: $black;
+}

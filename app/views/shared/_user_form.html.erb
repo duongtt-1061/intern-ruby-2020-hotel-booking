@@ -5,6 +5,33 @@
   <%= f.text_field :name, class: "form-control" %>
   <%= f.label t "email" %>
   <%= f.email_field :email, class: "form-control" %>
+  <%= f.label t "address" %>
+  <div id="div-addresses-user">
+    <% if user.addresses.size > 0 %>
+      <% user.addresses.each do |address| %>
+        <%= hidden_field_tag :name, address.id, name: "user[addresses_attributes][#{address.id}][id]" %>
+        <div class="custom-d-flex" id="custom-d-flex-<%= address.id %>">
+          <%= f.text_field :name,
+            name: "user[addresses_attributes][#{address.id}][location]",
+            value: address.location,
+            class: "form-control input-address-user",
+            data: {id: address.id} %>
+          <div class="div-x" data-id="<%= address.id %>">
+            <span class="delete-address">x</span>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <%= f.text_field :name,
+        name: "user[addresses_attributes][0][location]",
+        class: "form-control input-address-user",
+        id: "input-address-user-0",
+        data: {id: 0} %>
+    <% end %>
+  </div>
+  <button type="button" class="btn btn-info form-control" id="btn-add-address">
+    <%= t ".add_address" %>
+  </button>
   <%= f.label t "password" %>
   <%= f.password_field :password, class: "form-control" %>
   <%= f.label t "password_confirmation" %>

@@ -172,6 +172,27 @@ $(document).on('turbolinks:load', function() {
     $('#input_total_pay').val(total_pay);
     $('#btn-submit-booking').show();
   }
+
+  $('#btn-add-address').click(function(){
+    let next_address_id = parseInt($('.input-address-user').last().data('id')) + 1;
+    let content = `<input name="user[addresses_attributes][`+ next_address_id +`][location]"
+                    class="form-control input-address-user"
+                    id="input-address-user-`+ next_address_id +`"
+                    data-id="`+ next_address_id +`"
+                    type="text">`;
+    $('#div-addresses-user').append(content);
+  });
+
+  $('.div-x').click(function(){
+    if(confirm(I18n.t('.delete'))){
+      let address_id = $(this).data('id');
+      let content = `<input type="hidden"
+                      name="user[addresses_attributes][`+ address_id +`][_destroy]"
+                      id="name" value="1">`
+      $('#div-addresses-user').append(content);
+      $('#custom-d-flex-'+address_id).remove();
+    }
+  });
 });
 
 $( document ).ready(function() {
