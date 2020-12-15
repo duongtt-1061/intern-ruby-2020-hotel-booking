@@ -1,7 +1,16 @@
 class User < ApplicationRecord
-  USER_PERMIT = %i(name email password password_confirmation).freeze
+  USER_PERMIT = [:name,
+                 :email,
+                 :password,
+                 :password_confirmation,
+                 addresses_attributes: Address::ADDRESS_PERMIT].freeze
 
   has_many :orders, dependent: :destroy
+  has_many :addresses, dependent: :destroy
+
+  accepts_nested_attributes_for :addresses,
+                                reject_if: :all_blank,
+                                allow_destroy: true
 
   validates :name, presence: true,
                    length: {maximum: Settings.model.validate.max_name_user}

@@ -19,6 +19,7 @@ model:
     min_password: 5
     valid_email_regex: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     max_length_note: 250
+    max_address: 250
 admin:
   logo_img: "AdminLTELogo.png"
   user_img: "avatar5.png"

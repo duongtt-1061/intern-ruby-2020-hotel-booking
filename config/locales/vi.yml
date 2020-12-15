@@ -36,6 +36,7 @@ vi:
     "Đơn hàng của bạn đã được chấp nhận, kiểm tra mail để xem thêm thông tin"
   email: "Email"
   name: "Tên"
+  address: "Địa chỉ"
   error: "Lỗi"
   register_successful: "Đăng ký thành công"
   register_failed: "Đăng ký thất bại"
@@ -196,6 +197,8 @@ vi:
   shared:
     user_form:
       send: "Gửi"
+      add_address: "Thêm địa chỉ"
+      delete: "Xóa"
     order_form:
       room_name: "Tên phòng"
       room_price: "Giá phòng"
