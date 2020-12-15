@@ -39,6 +39,8 @@ group :development, :test do
   gem "rubocop-rails", "~> 2.3.2", require: false
   gem "rspec-rails", "~> 4.0.1"
   gem "pry-rails"
+  gem "simplecov-rcov"
+  gem "simplecov"
 end
 
 group :development do
