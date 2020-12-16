@@ -39,8 +39,7 @@ group :development, :test do
   gem "rubocop-rails", "~> 2.3.2", require: false
   gem "rspec-rails", "~> 4.0.1"
   gem "pry-rails"
-  gem "simplecov-rcov"
-  gem "simplecov"
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -55,6 +54,11 @@ group :test do
   gem "capybara", ">= 2.15"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "shoulda-matchers"
+  gem "simplecov-rcov"
+  gem "simplecov"
+  gem "database_cleaner-active_record"
+  gem "faker"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

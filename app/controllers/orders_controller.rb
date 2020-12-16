@@ -129,9 +129,9 @@ class OrdersController < ApplicationController
   end
 
   def can_destroy?
-    if @order.pendding_status?
+    if @order.pendding?
       true
-    elsif @order.approved_status?
+    elsif @order.approved?
       not_expired = @order.not_expire_to_destroy?
       @message = t "message_cannot_destroy_order" unless not_expired
       not_expired

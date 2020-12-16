@@ -52,8 +52,7 @@ class Order < ApplicationRecord
     where(room_id: room_id) if room_id.present?
   end)
 
-  enum status: {pendding: 0, approved: 1, disapprove: 2, cancel: 3},
-    _suffix: true
+  enum status: {pendding: 0, approved: 1, disapprove: 2, cancel: 3}
 
   def send_mail_create_order
     OrderMailer.create_order(user, self).deliver_now
