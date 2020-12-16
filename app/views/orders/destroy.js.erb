@@ -1,7 +1,7 @@
 <% if @message.present? %>
   alert("<%= @message %>");
-  $("#p-status-<%= @order.id %>").addClass("bg-<%= @order.status_was %>");
-  $("#p-status-<%= @order.id %>").html("<%= @order.status_was %>");
+  $("#p-status-<%= @order.id %>").addClass("bg-<%= @order.status %>");
+  $("#p-status-<%= @order.id %>").html("<%= @order.status %>");
   $("#btn-cancel-order-<%= @order.id %>").remove();
 <% else %>
   alert("<%= t ".delete_false" %>");

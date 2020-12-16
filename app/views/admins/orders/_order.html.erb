@@ -3,7 +3,7 @@
   <td><%= order.user_name %></td>
   <td><%= order.room_name %></td>
   <td><%= number_to_currency(order.price, unit: Settings.money.dola) %></td>
-  <td class="status-order-<%= order.status_was %>"><%= order.status_was %></td>
+  <td class="status-order-<%= order.status %>"><%= order.status %></td>
   <td>
     <%= link_to edit_admins_order_path(order), class: "btn btn-success" do %>
       <i class="fa fa-pencil" aria-hidden="true"></i>
