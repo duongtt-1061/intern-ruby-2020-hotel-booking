@@ -13,7 +13,7 @@ class Admins::BaseController < ApplicationController
   end
 
   def check_login
-    return if logged_in?
+    return if user_signed_in?
 
     flash[:danger] = t "something_wrong"
     redirect_to root_path

@@ -15,7 +15,7 @@ model:
     get_invalid_room: 1
     rooms_per_cate: 6
   validate:
-    max_name_user: 30
+    max_name_user: 60
     max_email_user: 45
     min_password: 5
     valid_email_regex: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

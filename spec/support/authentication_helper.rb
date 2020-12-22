@@ -1,5 +1,6 @@
 module AuthenticationHelper
   def login user
-    session[:user_id] = user.id
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    sign_in user
   end
 end

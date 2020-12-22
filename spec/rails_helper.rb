@@ -5,13 +5,14 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require "rspec/rails"
 require "spec_helper"
 require "support/authentication_helper"
+require "devise"
 
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].sort.each { |f| require f }
 
 abort("The Rails environment is running in production mode!") if Rails.env.production?
-require "rspec/rails"
 require "shoulda/matchers"
 require "support/database_cleaner"
+require "rspec/rails"
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].each { |f| require f }
 
 begin
@@ -26,6 +27,8 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
   config.include AuthenticationHelper, type: :controller
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Devise::Test::IntegrationHelpers, type: :request
 
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|

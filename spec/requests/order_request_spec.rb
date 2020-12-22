@@ -36,14 +36,6 @@ RSpec.describe OrdersController, type: :controller do
 
   before {login user}
 
-  describe "check_login" do
-    before {get :index, params: {page: 1, user_id: user.id},
-                        session:{user_id: nil}}
-    it "should redirect to root_path" do
-      expect(response).to redirect_to login_path
-    end
-  end
-
   describe "GET #index" do
     before {get :index, params: {page: 1,
                                  user_id: user.id}}

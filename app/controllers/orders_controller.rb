@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :check_login
+  before_action :authenticate_user!
   before_action :check_current_user
   before_action :find_room, only: %i(new create update)
   before_action :valid_date_for_booking,
@@ -73,13 +73,6 @@ class OrdersController < ApplicationController
                           status: Settings.status.pendding,
                           booking_attributes: booking_params
     params.require(:order).permit Order::ORDER_PARAMS
-  end
-
-  def check_login
-    return if logged_in?
-
-    flash[:danger] = t "login_to_continue"
-    redirect_to login_path
   end
 
   def find_room
