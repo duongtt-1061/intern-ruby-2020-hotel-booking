@@ -59,6 +59,7 @@ group :test do
   gem "simplecov"
   gem "database_cleaner-active_record"
   gem "faker"
+  gem "rails-controller-testing"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
