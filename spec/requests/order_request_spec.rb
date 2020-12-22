@@ -62,10 +62,9 @@ RSpec.describe OrdersController, type: :controller do
 
       it "should render the 'show' template with @order" do
         aggregate_failures do
-
+          expect(response).to render_template :show
+          expect(assigns(:order)).to eq order
         end
-        expect(response).to render_template :show
-        expect(assigns(:order)).to eq order
       end
     end
 

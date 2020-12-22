@@ -1,6 +1,6 @@
 <div class="col-sm-4 nroom-grid">
   <%= link_to room_path(room.slug), class: "room-img" do %>
-   <%= image_tag room.pictures.url || "" %>
+   <%= image_tag room.room_pictures[0].image.url || "" %>
   <% end %>
   <div class="row this-conts">
     <div class="media">
