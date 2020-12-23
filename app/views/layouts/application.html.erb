@@ -48,7 +48,7 @@
             </li>
             <% if user_signed_in? %>
               <li>
-                <%= link_to current_user.name, current_user %>
+                <%= link_to current_user.name, edit_user_registration_path %>
               </li>
               <li>
                 <%= link_to destroy_user_session_path, method: :delete, aria_expanded: "false", class: "dropdown-toggle" do %>
