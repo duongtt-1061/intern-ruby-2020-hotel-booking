@@ -43,6 +43,7 @@ vi:
   register_failed: "Đăng ký thất bại"
   password: "Mật khẩu"
   password_confirmation: "Xác nhận mật khẩu"
+  current_password: "Mật khẩu hiện tại"
   edit_profile: "Cập nhật thông tin"
   status: "Trạng thái"
   login_to_continue: "Vui lòng đăng nhập để tiếp tục đặt phòng"
@@ -277,6 +278,16 @@ vi:
         signed_up: "Đăng ký thành công"
       user:
         signed_up_but_unconfirmed: "Vui lòng xác thực tài khoản qua email"
+        updated: "Cập nhật thành công"
+      edit:
+        edit_user: "Cập nhật thông tin"
+        cancel_my_account: "Vô hiệu hóa tài khoản"
+        update: "Cập nhật"
+        unhappy: "Không hài lòng"
+        are_you_sure: "Bạn chắc chứ ?"
+        can_leave_blank: "Bỏ trống nếu bạn không muốn cập nhật"
+        minimum_password: "Kí tự tối thiểu"
+        need_current_password: "Chúng tôi cần xác nhận mật khẩu cũ của bạn để thay đổi"
     sessions:
       new:
         log_in: "Đăng nhập"
@@ -298,3 +309,6 @@ vi:
         click_link_below_to_confirm_account:
           "Bạn có thể bấm vào link bên dưới để kích hoạt tài khoản"
         confirm_my_account: "Kích hoạt tài khoản của tôi"
+  errors:
+    messages:
+      not_saved: "Cập nhật thất bại"
