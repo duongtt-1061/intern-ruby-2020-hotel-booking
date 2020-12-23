@@ -1,4 +1,5 @@
 vi:
+  Welcome: "Xin chào"
   update_order_successful: "Cập nhật đơn đặt phòng thành công"
   update_order_failed: "Cập nhật đơn đặt phòng thất bại"
   message_cannot_destroy_order: "Bạn đã đặt phòng quá 24 tiếng và đơn đặt phòng
@@ -268,3 +269,32 @@ vi:
       date_end: "Ngày trả phòng"
       unit_price: "Đơn giá"
       total_pay: "Tổng tiền"
+  devise:
+    registrations:
+      new:
+        send: "Đăng ký"
+        sign_up: "Đăng ký"
+        signed_up: "Đăng ký thành công"
+      user:
+        signed_up_but_unconfirmed: "Vui lòng xác thực tài khoản qua email"
+    sessions:
+      new:
+        log_in: "Đăng nhập"
+        login_with_facebook: "Đăng nhập với facebook"
+        login_with_google: "Đăng nhập với google"
+      user:
+        log_in: "Đăng nhập"
+        signed_in: "Đăng nhập thành công"
+        signed_out: "Đã đăng xuất"
+    confirmations:
+      confirmed: "Xác thực tài khoản thành công"
+      new:
+        resent_confirmation: "Gửi lại mã xác thực"
+    omniauth_callbacks:
+      user:
+        success: "Đăng nhập thành công"
+    mailer:
+      confirmation_instructions:
+        click_link_below_to_confirm_account:
+          "Bạn có thể bấm vào link bên dưới để kích hoạt tài khoản"
+        confirm_my_account: "Kích hoạt tài khoản của tôi"

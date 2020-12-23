@@ -46,19 +46,19 @@
                 <span class="glyphicon glyphicon-chevron-down"></span>
               <% end %>
             </li>
-            <% if logged_in? %>
+            <% if user_signed_in? %>
               <li>
                 <%= link_to current_user.name, current_user %>
               </li>
               <li>
-                <%= link_to logout_path, method: :delete, aria_expanded: "false", class: "dropdown-toggle" do %>
+                <%= link_to destroy_user_session_path, method: :delete, aria_expanded: "false", class: "dropdown-toggle" do %>
                   <%= t "logout" %>
                   <span class="glyphicon glyphicon-chevron-down"></span>
                 <% end %>
               </li>
             <% else %>
               <li>
-                <%= link_to login_path, aria_expanded: "false", class: "dropdown-toggle" do %>
+                <%= link_to new_user_session_path, aria_expanded: "false", class: "dropdown-toggle" do %>
                   <%= t "login" %>
                   <span class="glyphicon glyphicon-chevron-down"></span>
                 <% end %>

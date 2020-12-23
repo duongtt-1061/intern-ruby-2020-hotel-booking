@@ -41,7 +41,7 @@
           <div class="col-md-12">
             <div class="chk-button">
               <%= hidden_field_tag :room_id, @room.id, id: "room_id" %>
-              <% if logged_in? %>
+              <% if user_signed_in? %>
                 <%= hidden_field_tag :form_book_room, new_user_order_url(current_user), id: "form_book_room" %>
               <% else %>
                 <%= hidden_field_tag :form_book_room, nil, id: "form_book_room" %>
