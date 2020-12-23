@@ -11,10 +11,13 @@ class OrdersController < ApplicationController
 
   before_action :find_order, except: %i(index new create)
 
+  load_and_authorize_resource
+
   layout false, only: :new
 
   def index
-    @orders = current_user.orders.includes(:room)
+    @orders = current_user.orders
+                          .includes(:room)
                           .order_id_desc
                           .order_status_asc
                           .page(params[:page])
