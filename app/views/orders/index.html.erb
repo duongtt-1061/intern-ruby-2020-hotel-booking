@@ -1,5 +1,6 @@
 <% provide :title, t("list_order")%>
 <div class="content-wrapper">
+  <%= render "form_search" %>
   <div class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
@@ -16,25 +17,49 @@
           <tr>
             <th><%= t "id" %></th>
             <th scope="col">
-              <%= t ".room_name" %>
+              <%= sort_link @q,
+                            :room_name,
+                            t(".room_name"),
+                            remote: true %>
             </th>
             <th scope="col" class="text-center">
-              <%= t ".room_address" %>
+              <%= sort_link @q,
+                            :room_address,
+                            t(".room_address"),
+                            remote: true %>
             </th>
             <th scope="col">
-              <%= t ".date_start" %>
+              <%= sort_link @q,
+                            :created_at,
+                            t(".created_at"),
+                            remote: true %>
             </th>
             <th scope="col">
-              <%= t ".date_end" %>
+              <%= sort_link @q,
+                            :date_start,
+                            t(".date_start"),
+                            remote: true %>
             </th>
             <th scope="col">
-              <%= t ".unit_price" %>
+              <%= sort_link @q,
+                            :date_end,
+                            t(".date_end"),
+                            remote: true %>
+            </th>
+            <th scope="col">
+              <%= sort_link @q,
+                            :price,
+                            t(".unit_price"),
+                            remote: true %>
             </th>
             <th scope="col">
               <%= t ".total_pay" %>
             </th>
             <th scope="col">
-              <%= t ".status" %>
+              <%= sort_link @q,
+                            :status,
+                            t(".status"),
+                            remote: true %>
             </th>
             <th></th>
           </tr>

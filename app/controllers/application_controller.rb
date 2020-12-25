@@ -35,4 +35,8 @@ class ApplicationController < ActionController::Base
                           .not_in_order(params[:order_exist].presence || 0)
                           .check_status_by_date @date_start, @date_end
   end
+
+  def set_ransack_auth_object
+    current_user&.admin? ? :admin : nil
+  end
 end

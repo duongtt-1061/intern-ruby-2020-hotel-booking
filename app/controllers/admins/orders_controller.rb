@@ -2,9 +2,12 @@ class Admins::OrdersController < Admins::BaseController
   before_action :find_order, only: %i(edit update)
   before_action :filter_orders, only: :index
   def index
-    @orders = @orders.includes(:room, :user)
-                     .page(params[:page])
-                     .per Settings.rooms.num_record
+    @q = Order.ransack params[:q], auth_object: set_ransack_auth_object
+
+    @orders = @q.result
+                .includes(:room, :user)
+                .page(params[:page])
+                .per Settings.rooms.num_record
   end
 
   def edit; end

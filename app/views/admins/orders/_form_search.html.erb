@@ -1,26 +1,28 @@
-<%= form_tag admins_orders_path, method: :get,class: "form-search-admin" do %>
+<%= search_form_for @q, url: admins_orders_path, html: {method: :get, class: "form-search-admin"} do |f| %>
   <div class="d-flex">
-    <%= search_field_tag :order_id,
-      params[:order_id],
+    <%= f.search_field :id_eq,
       class: "form-control",
       placeholder: t(".order_id") %>
-    <%= search_field_tag :room_id,
-      params[:room_id],
+    <%= f.search_field :room_id_eq,
       class: "form-control",
       placeholder: t(".room_id") %>
-    <%= select_tag :status,
+    <%= f.select :status_eq,
       options_for_select(Order::statuses.reverse_merge({"---": nil}), params[:status]),
       {class: "form-control"} %>
   </div>
   <div class="d-flex">
     <div class="col-md-6">
       <span><%= t ".date_start" %></span>
-      <%= date_field_tag :date_start, params[:date_start], class: "form-control" %>
+      <%= f.date_field :date_start_gteq, class: "form-control" %>
     </div>
     <div class="col-md-6">
       <span><%= t ".date_end" %></span>
-      <%= date_field_tag :date_end, params[:date_end], class: "form-control" %>
+      <%= f.date_field :date_end_lteq, class: "form-control" %>
     </div>
   </div>
-  <%= submit_tag t(".search"), class: "btn btn-success form-control" %>
+  <div class="col-md-12">
+    <span><%= t ".note" %></span>
+      <%= f.text_field :by_note, class: "form-control" %>
+  </div>
+  <%= f.submit t(".search"), class: "btn btn-success form-control" %>
 <% end %>

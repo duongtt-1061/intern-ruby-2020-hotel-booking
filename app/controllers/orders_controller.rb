@@ -16,12 +16,14 @@ class OrdersController < ApplicationController
   layout false, only: :new
 
   def index
-    @orders = current_user.orders
-                          .includes(:room)
-                          .order_id_desc
-                          .order_status_asc
-                          .page(params[:page])
-                          .per Settings.per.order
+    @q = current_user.orders
+                     .ransack params[:q], auth_object: set_ransack_auth_object
+    @orders = @q.result
+                .includes([:room])
+                .order_id_desc
+                .order_status_asc
+                .page(params[:page])
+                .per Settings.per.order
   end
 
   def show; end

@@ -98,7 +98,7 @@ vi:
       base_title: "Đăng nhập"
   searchs:
     search: "Tìm kiếm"
-    input_name: "Nhập tên phòng"
+    input_name: "Nhập tên hoặc mô tả của phòng"
     input_price: "Nhập giá phòng (chúng tôi sẽ tìm kiếm các phòng có giá <= giá bạn nhập)"
     room_not_found: "Không có phòng nào được tìm thấy"
     author: "MR Khải & MR Dương"
@@ -108,6 +108,7 @@ vi:
     date_end: "Ngày trả phòng"
     select_type_room: "Hãy chọn loại phòng"
     select_location_room: "Hãy chọn địa điểm phòng"
+    supply_name: "Nhập tên vật dụng"
   static_pages:
     home:
       new_friendships: "Khách hàng thân thiết"
@@ -179,23 +180,27 @@ vi:
       ward_id: "Địa điểm phòng không được để trống"
     orders:
       id: "ID"
-      base_title: "Danh sách order"
-      edit_title: "Cap nhat trang thai order"
-      user_id: "Khach hang"
-      room_id: "Phong"
-      note: "Ghi chu"
-      date_start: "Ngay bat dau"
-      date_end: "Ngay ket thuc"
-      price: "Gia phong"
-      status: "Trang thai"
+      base_title: "Danh sách đơn đặt phòng"
+      edit_title: "Cập nhật trạng thái đơn hàng"
+      user_id: "Khách hàng"
+      room_id: "Phòng"
+      note: "Ghi chú"
+      date_start: "Ngày nhận phòng"
+      date_end: "Ngày trả phòng"
+      price: "Giá phòng"
+      status: "Trạng thái"
       form_search:
         order_id: "Mã hóa đơn"
         room_id: "Mã phòng"
         date_start: "Ngày nhận phòng"
         date_end: "Ngày trả phòng"
         search: "Lọc"
+        note: "Ghi chú"
       index:
         result: "Kết quả"
+        date_start: "Ngày nhận phòng"
+        date_end: "Ngày trả phòng"
+        created_at: "Ngày tạo"
   shared:
     user_form:
       send: "Gửi"
@@ -237,6 +242,7 @@ vi:
       date_end: "Ngày trả phòng"
       total_pay: "Thanh toán"
       status: "Trạng thái"
+      created_at: "Ngày tạo"
     show:
       list_order: "Danh sách"
       order_detail: "Chi tiết đặt phòng"
@@ -260,6 +266,12 @@ vi:
       send: "Xác nhận"
     create:
       warning_for_quantity_person: "Số người không hợp lệ"
+    form_search:
+      search: "Lọc"
+      status: "Trạng thái"
+      created_at: "Ngày tạo"
+      date_start: "Ngày nhận phòng"
+      date_end: "Ngày trả phòng"
   order_mailer:
     create_order:
       title_mail_create_order: "Đặt phòng"
@@ -309,6 +321,9 @@ vi:
         click_link_below_to_confirm_account:
           "Bạn có thể bấm vào link bên dưới để kích hoạt tài khoản"
         confirm_my_account: "Kích hoạt tài khoản của tôi"
+    failure:
+      user:
+        unauthenticated: "Vui lòng đăng nhập"
   errors:
     messages:
       not_saved: "Cập nhật thất bại"

@@ -1,0 +1,30 @@
+<div class="container">
+  <%= search_form_for @q, url: user_orders_path, html: {method: :get} do |f| %>
+    <div>
+      <div class="d-flex">
+        <div class="col-md-4">
+          <span><%= t ".date_start" %></span>
+          <%= f.date_field :date_start_gteq, class: "form-control" %>
+        </div>
+        <div class="col-md-4">
+          <span><%= t ".date_end" %></span>
+          <%= f.date_field :date_end_lteq, class: "form-control" %>
+        </div>
+        <div class="col-md-4">
+          <span><%= t ".created_at" %></span>
+          <%= f.date_field :created_at_date_equals, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="col-md-4 text-center">
+        <%= label_tag :status_eq, t(".status") %>
+        <%= f.select :status_eq,
+          options_for_select(Order::statuses.reverse_merge({"---": nil})),
+          {},
+          {class: "form-control"} %>
+      </div>
+      <%= f.submit t(".search"), class: "btn btn-success form-control btn-filter-order col-md-8" %>
+    </div>
+  <% end %>
+</div>

@@ -1,5 +1,9 @@
 @import "color.scss";
 
+body{
+  color: black !important;
+}
+
 .form-login{
   width: 60%;
   margin: auto;
@@ -166,4 +170,8 @@
 .btn-update-profile{
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.btn-filter-order{
+  margin-top: 20px;
 }

@@ -23,62 +23,35 @@
           <tr>
             <th scope="col">
               <div class="box-sort">
-                <%= t "admins.rooms.id" %>
-                <div class="btn-sort">
-                  <%= link_to admins_rooms_path(order_key: :id, order_type: :asc),
-                    class: "btn-asc", remote: true do %>
-                    <%= image_tag Settings.image.up %>
-                  <% end %>
-                  <%= link_to admins_rooms_path(order_key: :id, order_type: :desc),
-                    class: "btn-asc", remote: true do %>
-                    <%= image_tag Settings.image.down %>
-                  <% end %>
-                </div>
+                <%= sort_link @q,
+                              :id,
+                              t("admins.rooms.id"),
+                              default_order: :asc,
+                              remote: true %>
               </div>
             </th>
             <th scope="col">
               <div class="box-sort">
-                <%= t "admins.rooms.name" %>
-                <div class="btn-sort">
-                  <%= link_to admins_rooms_path(order_key: :name, order_type: :asc),
-                    class: "btn-asc", remote: true do %>
-                    <%= image_tag Settings.image.up %>
-                  <% end %>
-                  <%= link_to admins_rooms_path(order_key: :name, order_type: :desc),
-                    class: "btn-asc", remote: true do %>
-                    <%= image_tag Settings.image.down %>
-                  <% end %>
-                </div>
+                <%= sort_link @q,
+                              :name,
+                              t("admins.rooms.name"),
+                              remote: true %>
               </div>
             </th>
             <th scope="col">
               <div class="box-sort">
-                <%= t "admins.rooms.cate" %>
-                <div class="btn-sort">
-                  <%= link_to admins_rooms_path(order_key: :category_id, order_type: :asc),
-                    class: "btn-asc", remote: true do %>
-                    <%= image_tag Settings.image.up %>
-                  <% end %>
-                  <%= link_to admins_rooms_path(order_key: :category_id, order_type: :desc),
-                    class: "btn-asc", remote: true do %>
-                    <%= image_tag Settings.image.down %>
-                  <% end %>
-                </div>
+                <%= sort_link @q,
+                              :category_id,
+                              t("admins.rooms.cate"),
+                              remote: true %>
               </div>
             </th>
             <th scope="col">
               <div class="box-sort">
-                <%= t "admins.rooms.price" %>
-                <div class="btn-sort">
-                  <%= link_to admins_rooms_path(order_key: :price, order_type: :asc),
-                    class: "btn-asc", remote: true do %>
-                    <%= image_tag Settings.image.up %>
-                  <% end %>
-                  <%= link_to admins_rooms_path(order_key: :price, order_type: :desc),
-                    class: "btn-asc", remote: true do %>
-                    <%= image_tag Settings.image.down %>
-                  <% end %>
-                </div>
+                <%= sort_link @q,
+                              :price,
+                              t("admins.rooms.price"),
+                              remote: true %>
               </div>
             </th>
             <th scope="col"><%= t "admins.rooms.image" %></th>
