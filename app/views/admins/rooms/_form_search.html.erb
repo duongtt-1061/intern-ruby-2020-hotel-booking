@@ -1,26 +1,31 @@
-<%= form_tag admins_rooms_path, class: "form-search-admin",
-    id: "form-search-room-admin", remote: true, method: :get do %>
+<%= search_form_for @q, url: admins_rooms_path, html: {method: :get, class: "form-search-admin"} do |f| %>
   <div class="big-box-input">
     <div class="box-input">
-      <%= text_field_tag :name, params[:name],
+      <%= f.text_field :room_info_cont,
           class: "form-control input-search",
           placeholder: t("searchs.input_name") %>
-      <%= number_field_tag :start_price, params[:start_price],
+      <%= f.number_field :price_gteq,
           class: "form-control input-search start_price",
           min: Settings.rooms.min_price,
           placeholder: t("searchs.start_price") %>
     </div>
     <div class="box-input">
-      <%= select_tag(:cate_id,
-          options_from_collection_for_select(Category.all, :id, :name, params[:cate_id]),
-          class: "form-control input-search", prompt: t("searchs.select_type_room")) %>
-      <%= number_field_tag :end_price, params[:end_price],
+      <%= f.select(:category_id_eq,
+          options_from_collection_for_select(Category.all, :id, :name),
+          {prompt: t("searchs.select_type_room")},
+          {class: "form-control input-search"}) %>
+      <%= f.number_field :price_lteq,
           class: "form-control input-search end_price",
           min: Settings.rooms.min_price,
           placeholder: t("searchs.end_price") %>
     </div>
+    <div class="box-input">
+      <%= f.text_field :supply_name_cont,
+          class: "form-control input-search start-price",
+          placeholder: t("searchs.supply_name") %>
+    </div>
   </div>
   <div class="box-submit">
-    <%= submit_tag t("searchs.search"), class: "btn btn-primary btn-login" %>
+    <%= f.submit t("searchs.search"), class: "btn btn-primary btn-login" %>
   </div>
 <% end %>

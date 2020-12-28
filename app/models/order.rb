@@ -51,8 +51,15 @@ class Order < ApplicationRecord
   scope :by_room, (lambda do |room_id|
     where(room_id: room_id) if room_id.present?
   end)
+  scope :by_note, (lambda do |content|
+    where "note LIKE ?", "%#{content}%" if content.present?
+  end)
 
   enum status: {pendding: 0, approved: 1, disapprove: 2, cancel: 3}
+
+  ransacker :created_at do
+    Arel.sql("date(created_at)")
+  end
 
   def send_mail_create_order
     OrderMailer.create_order(user, self).deliver_now
@@ -68,5 +75,23 @@ class Order < ApplicationRecord
 
   def not_expire_to_destroy?
     ((DateTime.now.to_time - created_at.to_time) / 1.hour).to_i < 24
+  end
+
+  class << self
+    def ransackable_attributes auth_object = nil
+      if auth_object.eql? :admin
+        super
+      else
+        super & %w(status date_start date_end created_at)
+      end
+    end
+
+    def ransackable_scopes auth_object = nil
+      if auth_object.eql? :admin
+        %i(by_note)
+      else
+        []
+      end
+    end
   end
 end

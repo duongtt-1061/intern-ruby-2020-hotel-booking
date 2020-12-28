@@ -4,6 +4,7 @@
   <td class="text-info"><%= order_counter %></td>
   <td class="text-info"><%= order.room_name %></td>
   <td class="text-info"><%= order.room_address %></td>
+  <td class="text-info"><%= order.created_at.strftime Settings.format_date %></td>
   <td class="text-info"><%= order.date_start.strftime Settings.format_date %></td>
   <td class="text-info"><%= order.date_end.strftime Settings.format_date %></td>
   <td class="text-info"><%= order.room_price %></td>

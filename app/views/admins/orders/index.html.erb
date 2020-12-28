@@ -24,32 +24,66 @@
           <tr>
             <th scope="col">
               <div class="box-sort">
-                <%= t "admins.orders.id" %>
-                <%= render partial: "shared/button_sort", locals: {key: :id} %>
+                <%= sort_link @q,
+                              :id,
+                              t("admins.orders.id"),
+                              remote: true %>
               </div>
             </th>
             <th scope="col">
               <div class="box-sort">
-                <%= t "admins.orders.user_id" %>
-                <%= render partial: "shared/button_sort", locals: {key: :user_id} %>
+                <%= sort_link @q,
+                              :user_name,
+                              t("admins.orders.user_id"),
+                              remote: true %>
               </div>
             </th>
             <th scope="col">
               <div class="box-sort">
-                <%= t "admins.orders.room_id" %>
-                <%= render partial: "shared/button_sort", locals: {key: :room_id} %>
+                <%= sort_link @q,
+                              :room_id,
+                              t("admins.orders.room_id"),
+                              remote: true %>
               </div>
             </th>
             <th scope="col">
               <div class="box-sort">
-                <%= t "admins.orders.price" %>
-                <%= render partial: "shared/button_sort", locals: {key: :price} %>
+                <%= sort_link @q,
+                              :created_at,
+                              t(".created_at"),
+                              remote: true %>
               </div>
             </th>
             <th scope="col">
               <div class="box-sort">
-                <%= t "admins.orders.status" %>
-                <%= render partial: "shared/button_sort", locals: {key: :status} %>
+                <%= sort_link @q,
+                              :date_start,
+                              t(".date_start"),
+                              remote: true %>
+              </div>
+            </th>
+            <th scope="col">
+              <div class="box-sort">
+                <%= sort_link @q,
+                              :date_end,
+                              t(".date_end"),
+                              remote: true %>
+              </div>
+            </th>
+            <th scope="col">
+              <div class="box-sort">
+                <%= sort_link @q,
+                              :price,
+                              t("admins.orders.price"),
+                              remote: true %>
+              </div>
+            </th>
+            <th scope="col">
+              <div class="box-sort">
+                <%= sort_link @q,
+                              :status,
+                              t("admins.orders.status"),
+                              remote: true %>
               </div>
             </th>
             <th scope="col"><%= t "admins.orders.action" %></th>

@@ -11,6 +11,9 @@ class Room < ApplicationRecord
   mount_uploader :pictures, RoomPictureUploader
   accepts_nested_attributes_for :room_pictures, allow_destroy: true
 
+  ransack_alias :room_info, :name_or_description
+  ransack_alias :supply_name, :supplies_name
+
   validates :name, :slug, :price,
             :description, :map, :address, presence: true
   validates :price, :max_person,
@@ -37,10 +40,7 @@ class Room < ApplicationRecord
   end)
   scope :random_room, ->{order "RAND()"}
 
-  scope :order_by, (lambda do |order_key, order_type|
-    order "#{order_key} #{order_type}" if order_type.present? &&
-                                          order_key.present?
-  end)
+  scope :by_id_desc, ->{order id: Settings.model.order.desc}
 
   delegate :name, to: :category, prefix: true
 end

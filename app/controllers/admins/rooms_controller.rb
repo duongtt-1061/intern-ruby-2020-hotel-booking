@@ -3,10 +3,12 @@ class Admins::RoomsController < Admins::BaseController
   before_action :get_room, only: :index
 
   def index
-    @rooms = @rooms.order_by(params[:order_key], params[:order_type])
-                   .includes(:category)
-                   .page(params[:page])
-                   .per Settings.rooms.num_record
+    @q = Room.ransack params[:q]
+    @rooms = @q.result
+               .by_id_desc
+               .includes(:category, :room_pictures, :supplies)
+               .page(params[:page])
+               .per Settings.rooms.num_record
   end
 
   def new

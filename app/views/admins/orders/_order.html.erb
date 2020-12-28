@@ -2,6 +2,9 @@
   <th scope="row"><%= order.id %></th>
   <td><%= order.user_name %></td>
   <td><%= order.room_name %></td>
+  <td class="text-info"><%= order.created_at.strftime Settings.format_date %></td>
+  <td class="text-info"><%= order.date_start.strftime Settings.format_date %></td>
+  <td class="text-info"><%= order.date_end.strftime Settings.format_date %></td>
   <td><%= number_to_currency(order.price, unit: Settings.money.dola) %></td>
   <td class="status-order-<%= order.status %>"><%= order.status %></td>
   <td>
