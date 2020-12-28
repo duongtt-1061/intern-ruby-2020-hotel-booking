@@ -44,6 +44,7 @@ class OrdersController < ApplicationController
     order = current_user.orders.build order_params
     if order.save
       flash[:success] = t "flash_create_new_order_success"
+      OrderWorker.perform_async order.id
     else
       flash.now[:danger] = t "something_wrong"
     end

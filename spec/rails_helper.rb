@@ -6,6 +6,8 @@ require "rspec/rails"
 require "spec_helper"
 require "support/authentication_helper"
 require "devise"
+require "sidekiq/testing"
+Sidekiq::Testing.fake!
 
 Dir[Rails.root.join("spec", "support", "**", "*.rb")].sort.each { |f| require f }
 

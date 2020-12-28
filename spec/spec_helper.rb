@@ -14,6 +14,8 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  require "sidekiq/testing"
+  Sidekiq::Testing.fake!
   require "simplecov"
   require "simplecov-rcov"
   class SimpleCov::Formatter::MergedFormatter

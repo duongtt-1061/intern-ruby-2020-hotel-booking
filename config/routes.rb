@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en|vi/ do
     root to: "static_pages#home"
 
+    require "sidekiq/web"
+    mount Sidekiq::Web => "/sidekiq"
+
     get "/categories/:slug/rooms", to: "rooms#index"
     get "/room/:slug", to: "rooms#show", as: "room"
     get "/login", to: "sessions#new"
