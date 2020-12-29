@@ -28,8 +28,6 @@ class Order < ApplicationRecord
                                 reject_if: :all_blank,
                                 allow_destroy: true
 
-  after_save :send_mail_create_order
-
   scope :order_id_desc, ->{order id: :desc}
   scope :order_status_asc, ->{order status: :asc}
   scope :order_by, (lambda do |order_key, order_type|

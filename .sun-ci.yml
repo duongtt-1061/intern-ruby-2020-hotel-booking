@@ -20,6 +20,8 @@ jobs:
   stage: test
   image: sunci/ruby:2.7.0
   services:
+  - image: redis:alpine
+    name: redis
   - image: mysql:5.7.22
     name: mysql_test
     environment:
