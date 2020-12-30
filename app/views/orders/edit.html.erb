@@ -1,7 +1,7 @@
 <section class="container clearfix common-pad-inner" style="max-width: 100%;">
   <p><%= t "confirm_data" %></p>
   <div class="div-new-order">
-    <%= render "shared/order_form", path: user_order_path %>
+    <%= render "shared/order_form", path: order_path %>
     <%= hidden_field_tag :order_exist, @order.id %>
   </div>
 </section>

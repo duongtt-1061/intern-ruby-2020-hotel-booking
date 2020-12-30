@@ -1,4 +1,7 @@
 vi:
+  cancel: "Hủy"
+  delete: "Xóa"
+  detail: "Chi tiết"
   Welcome: "Xin chào"
   update_order_successful: "Cập nhật đơn đặt phòng thành công"
   update_order_failed: "Cập nhật đơn đặt phòng thất bại"
@@ -187,7 +190,7 @@ vi:
       note: "Ghi chú"
       date_start: "Ngày nhận phòng"
       date_end: "Ngày trả phòng"
-      price: "Giá phòng"
+      price: "Thanh toán"
       status: "Trạng thái"
       form_search:
         order_id: "Mã hóa đơn"
@@ -198,8 +201,8 @@ vi:
         note: "Ghi chú"
       index:
         result: "Kết quả"
-        date_start: "Ngày nhận phòng"
-        date_end: "Ngày trả phòng"
+        date_start: "Nhận phòng"
+        date_end: "Trả phòng"
         created_at: "Ngày tạo"
   shared:
     user_form:

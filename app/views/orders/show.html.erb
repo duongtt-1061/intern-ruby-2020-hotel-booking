@@ -10,7 +10,7 @@
         <%= link_to t("home"), root_path %>
       </li>
       <li>
-        <%= link_to t(".list_order"), user_orders_path %>
+        <%= link_to t(".list_order"), orders_path %>
       </li>
       <li class="active"><%= t ".order_detail" %></li>
     </ol>
@@ -83,7 +83,7 @@
         readonly: true %>
     </div>
   </div>
-  <%= link_to edit_user_order_path do %>
+  <%= link_to edit_order_path(@order) do %>
     <button class="btn btn-success"><%= t ".edit" %></button>
   <% end %>
 </div>

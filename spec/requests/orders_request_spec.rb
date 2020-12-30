@@ -7,6 +7,10 @@ RSpec.describe OrdersController, type: :controller do
   let(:user_two) {FactoryBot.create :user}
   let(:order) {FactoryBot.create :order, user: user,
                                          room: room}
+
+  let(:order_five) {FactoryBot.create :order, user: user_two,
+                                              room: room}
+
   let!(:order_two) do
     FactoryBot.create :order, user: user,
                               room: room,
@@ -24,7 +28,7 @@ RSpec.describe OrdersController, type: :controller do
   end
 
   let(:order_four) do
-    FactoryBot.create :order, user: user,
+    FactoryBot.create :order, user: user_two,
                               room: room,
                               date_start: "2020-12-26",
                               date_end: "2020-12-30",
@@ -61,10 +65,10 @@ RSpec.describe OrdersController, type: :controller do
     end
 
     context "when not correct user" do
-      before {get :show, params: {user_id: user_two.id, id: order.id}}
+      before {get :show, params: {id: order_five.id}}
 
-      it "should redirect to index of current user" do
-        expect(response).to redirect_to user_orders_path user
+      it "should redirect to root_path" do
+        expect(response).to redirect_to root_path
       end
     end
 
@@ -76,7 +80,7 @@ RSpec.describe OrdersController, type: :controller do
       end
 
       it "should redirect to index of current user" do
-        expect(response).to redirect_to user_orders_path user
+        expect(response).to redirect_to orders_path
       end
     end
   end
@@ -240,8 +244,8 @@ RSpec.describe OrdersController, type: :controller do
         expect(assigns(:order)).to eq nil
       end
 
-      it "should redirect to user_orders_path" do
-        expect(response).to redirect_to user_orders_path user
+      it "should redirect to orders_path" do
+        expect(response).to redirect_to orders_path
       end
     end
   end

@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :room do
     name {Faker::Name.unique.name}
     slug {name}
-    price {Faker::Number.decimal(l_digits: 3, r_digits: 3)}
+    price {Faker::Number.decimal(l_digits: 2, r_digits: 2)}
     max_person {2}
     description {"lorems ipsum..."}
     map {"lorems ipsums..."}

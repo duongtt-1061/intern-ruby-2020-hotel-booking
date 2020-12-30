@@ -1,6 +1,7 @@
 class SearchController < ApplicationController
   def index
     @rooms = Room.includes(:category)
+                 .includes([:room_pictures])
                  .search_by_name(params[:name])
                  .relate_room(params[:cate_id])
                  .search_start_price(params[:start_price])

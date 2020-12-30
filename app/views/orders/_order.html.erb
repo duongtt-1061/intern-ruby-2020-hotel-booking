@@ -1,4 +1,4 @@
-<tr data-link="<%= user_order_url(current_user, order) %>"
+<tr data-link="<%= order_url order %>"
   id="tr-order-<%= order.id %>"
   class="text-info tr-order">
   <td class="text-info"><%= order_counter %></td>
@@ -15,11 +15,11 @@
     </p>
   <td>
   <td>
-    <%= link_to t(".edit"), edit_user_order_path(current_user, order) %>
+    <%= link_to t(".edit"), edit_order_path(order) %>
     <% if order.pendding? || order.approved? && order.not_expire_to_destroy? %>
       |
       <%= link_to t(".cancel"),
-        user_order_path(current_user, order),
+        order_path(order),
         method: :delete,
         data: {confirm: t(".are_you_sure")},
         remote: true,

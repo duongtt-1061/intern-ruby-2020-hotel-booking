@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_current_user
   before_action :find_room, only: %i(new create update)
   before_action :valid_date_for_booking,
                 :get_booked_room_for_booking,
@@ -44,6 +43,7 @@ class OrdersController < ApplicationController
     order = current_user.orders.build order_params
     if order.save
       flash[:success] = t "flash_create_new_order_success"
+      OrderWorker.perform_async order.id
     else
       flash.now[:danger] = t "something_wrong"
     end
@@ -63,7 +63,7 @@ class OrdersController < ApplicationController
   def update
     if @order.update order_params
       flash[:success] = t "update_order_successful"
-      redirect_to user_orders_path
+      redirect_to orders_path
     else
       flash[:danger] = t "update_order_failed"
       render :edit
@@ -109,21 +109,12 @@ class OrdersController < ApplicationController
     (params[:order][:date_end].to_date - params[:order][:date_start].to_date)
   end
 
-  def check_current_user
-    user = User.find_by id: params[:user_id]
-    return if current_user? user
-
-    flash[:danger] = t "something_wrong"
-    redirect_to user_orders_path current_user
-  end
-
   def find_order
     @order = Order.find_by id: params[:id]
-
     return if @order
 
     flash[:danger] = t "something_wrong"
-    redirect_to user_orders_path current_user
+    redirect_to orders_path
   end
 
   def can_destroy?

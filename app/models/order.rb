@@ -10,7 +10,7 @@ class Order < ApplicationRecord
     booking_attributes: Booking::BOOKING_PARAMS
   ].freeze
 
-  ORDER_CHANGE_STATUS_PERMIT = :status
+  ORDER_CHANGE_STATUS_PERMIT = %w(status date_start date_end quantity_person)
 
   belongs_to :user
   belongs_to :room
@@ -27,8 +27,6 @@ class Order < ApplicationRecord
   accepts_nested_attributes_for :booking,
                                 reject_if: :all_blank,
                                 allow_destroy: true
-
-  after_save :send_mail_create_order
 
   scope :order_id_desc, ->{order id: :desc}
   scope :order_status_asc, ->{order status: :asc}

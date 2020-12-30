@@ -11,7 +11,7 @@ $(document).on('turbolinks:load', function() {
   const CLOSE_STATUS = 'close';
   var origin_path = window.location.origin;
   var url_check_room = origin_path + '/check_room';
-  var login_url = origin_path + '/login';
+  var login_url = origin_path + '/users/sign_in';
 
   $('#btn-check-room').click(function(){
     let date_start = convert_date($('#input_date_start_check').val());

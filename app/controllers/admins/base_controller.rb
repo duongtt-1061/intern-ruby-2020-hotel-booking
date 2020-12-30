@@ -9,6 +9,6 @@ class Admins::BaseController < ApplicationController
     return if current_user.admin?
 
     flash[:danger] = t "admins.not_admin"
-    redirect_to login_path
+    redirect_to root_path
   end
 end

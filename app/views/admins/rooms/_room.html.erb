@@ -6,10 +6,10 @@
   <td><%= image_tag room.room_pictures[0].image.url || "", class: "image-show-admin" %></td>
   <td>
     <%= link_to edit_admins_room_path(room), class: "btn btn-success" do %>
-      <i class="fa fa-pencil" aria-hidden="true"></i>
+      <%= t "detail" %>
     <% end %>
     <%= link_to admins_room_path(room), method: :delete, data: {confirm: t("admins.you_sure")}, class: "btn btn-danger", id: "btn-del-#{room.id}", remote: true do %>
-      <i class="fas fa-trash" aria-hidden="true"></i>
+      <%= t "delete" %>
     <% end %>
   </td>
 </tr>

@@ -5,7 +5,9 @@ RSpec.describe Order, type: :model do
   let(:room) {FactoryBot.create :room, {category: category}}
   let(:user) {FactoryBot.create :user}
   let(:order) {FactoryBot.create :order, user_id: user.id,
-                                         room_id: room.id}
+                                         room_id: room.id,
+                                         note: "haha",
+                                         created_at: "2015-12-25"}
   let(:invalid_order) {FactoryBot.build :order, room_id: room.id}
   let!(:order_two) do
     FactoryBot.create :order, user_id: user.id,
@@ -100,6 +102,16 @@ RSpec.describe Order, type: :model do
 
     it ".by_room" do
       expect(Order.by_room(order_two.room_id)).to eq [order_two, order_three]
+    end
+
+    it ".by_note" do
+      expect(Order.by_note("ha")).to eq [order]
+    end
+  end
+
+  describe "instance method" do
+    it "should return false when order expired" do
+      expect(order.not_expire_to_destroy?).to eq false
     end
   end
 end

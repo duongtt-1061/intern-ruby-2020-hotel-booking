@@ -25,7 +25,7 @@
   <%= f.label t("admins.rooms.image"), class: "input-presence" %>
   <%= f.file_field :pictures, class: "form-control", id: "imgInp" %>
   <div class="room-picture">
-    <%= image_tag (@room.pictures_url if @room.pictures_url), id: "blah" %>
+    <%= image_tag @room.room_pictures[0].image.url, id: "blah" %>
   </div>
   <%= display_error f.object, :pictures, t("admins.rooms.image") %>
   <%= f.label t("admins.rooms.image_detail") %>
